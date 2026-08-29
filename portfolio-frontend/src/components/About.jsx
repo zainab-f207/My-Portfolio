@@ -1,10 +1,11 @@
 import { motion } from "framer-motion";
+import { FaGraduationCap, FaMapMarkerAlt, FaCertificate, FaBullseye } from "react-icons/fa";
 
-const stats = [
-  { value: "25,440", label: "FIR records analyzed", color: "bg-lavender/20" },
-  { value: "47", label: "responder orgs mapped", color: "bg-peach/20" },
-  { value: "10", label: "resume templates built", color: "bg-mint/20" },
-  { value: "88.1%", label: "HEC NSCT percentile", color: "bg-sky/20" },
+const facts = [
+  { icon: FaGraduationCap, label: "Education", value: "BS CS, NUML Lahore" },
+  { icon: FaCertificate, label: "Certified", value: "HEC NSCT — 88.1 percentile" },
+  { icon: FaMapMarkerAlt, label: "Based in", value: "Lahore, Pakistan" },
+  { icon: FaBullseye, label: "Focused on", value: ".NET + React, end to end" },
 ];
 
 export default function About() {
@@ -18,7 +19,7 @@ export default function About() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="clay-card bg-white p-8 md:p-10"
+          className="clay-card p-8 md:p-10"
         >
           <p className="text-plum/75 leading-relaxed text-lg">
             I'm a Computer Science graduate from <strong>NUML, Lahore</strong>,
@@ -36,21 +37,34 @@ export default function About() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 gap-4">
-          {stats.map((s, i) => (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="clay-card p-6 flex flex-col justify-center gap-5"
+        >
+          {facts.map((f, i) => (
             <motion.div
-              key={s.label}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              key={f.label}
+              initial={{ opacity: 0, x: 15 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.08 }}
-              className={`clay-card ${s.color} p-5 flex flex-col justify-center`}
+              transition={{ delay: i * 0.1 }}
+              className="flex items-center gap-4"
             >
-              <p className="font-display text-2xl font-extrabold text-plum">{s.value}</p>
-              <p className="text-xs text-plum/70 mt-1 font-medium">{s.label}</p>
+              <div
+                className="w-11 h-11 shrink-0 rounded-xl flex items-center justify-center text-white"
+                style={{ background: "linear-gradient(135deg,#8b5cf6,#f472b6)" }}
+              >
+                <f.icon size={16} />
+              </div>
+              <div>
+                <p className="text-xs text-plum/60 font-medium">{f.label}</p>
+                <p className="font-display font-bold text-plum">{f.value}</p>
+              </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

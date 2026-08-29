@@ -62,9 +62,9 @@ export default function Hero() {
             transition={{ delay: 0.3 }}
             className="text-plum/70 text-base md:text-lg max-w-xl mb-8"
           >
-            I build full-stack apps end to end — database, API, and UI.
-            This portfolio's contact form and view counters run on a real
-            backend I wrote myself, not just static text.
+            Full-stack web applications with .NET, React, and SQL — from secure APIs and databases to responsive, production-ready interfaces.
+            <br />
+Real-world projects spanning disaster response systems, AI-powered analytics, and intelligent ATS resume tools.
           </motion.p>
 
           <motion.div
@@ -91,13 +91,37 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.2, duration: 0.6 }}
-          className="relative mx-auto"
+          className="relative mx-auto w-full max-w-sm"
         >
           <div className="absolute -top-6 -left-6 w-20 h-20 border-4 border-dashed border-plum/15 rounded-full animate-spin-slow" />
           <div className="absolute -bottom-8 -right-4 w-16 h-16 bg-peach/30 rounded-2xl rotate-12 animate-wiggle" />
 
-          <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-[2.5rem] overflow-hidden clay-card bg-white">
-            <img src="/profile.jpg" alt="Zainab Fayyaz" className="w-full h-full object-cover" />
+          <div className="relative clay-card bg-[#1e1830] overflow-hidden rounded-[2rem]">
+            <div className="flex items-center gap-2 px-4 py-3 border-b border-white/10">
+              <span className="w-3 h-3 rounded-full bg-coral" />
+              <span className="w-3 h-3 rounded-full bg-gold" />
+              <span className="w-3 h-3 rounded-full bg-mint" />
+              <span className="ml-2 font-mono text-xs text-white/40">Developer.cs</span>
+            </div>
+
+            <div className="p-5 font-mono text-[13px] leading-relaxed">
+              <p><span className="text-[#c586c0]">public class</span> <span className="text-[#4ec9b0]">Developer</span> {"{"}</p>
+              <p className="pl-4"><span className="text-[#9cdcfe]">Name</span> = <span className="text-[#ce9178]">"Zainab Fayyaz"</span>;</p>
+              <p className="pl-4"><span className="text-[#9cdcfe]">Role</span> = <span className="text-[#ce9178]">".NET Developer"</span>;</p>
+              <p className="pl-4"><span className="text-[#9cdcfe]">Stack</span> = <span className="text-[#ce9178]">[</span></p>
+              <p className="pl-8 text-[#ce9178]">"C#", "ASP.NET Core",</p>
+              <p className="pl-8 text-[#ce9178]">"React", "SQL Server"</p>
+              <p className="pl-4 text-[#ce9178]">];</p>
+              <p className="pl-4">
+                <span className="text-[#9cdcfe]">Status</span> = <span className="text-[#ce9178]">"Open to work"</span>
+                <motion.span
+                  animate={{ opacity: [1, 0] }}
+                  transition={{ duration: 0.8, repeat: Infinity, repeatType: "reverse" }}
+                  className="inline-block w-2 h-4 bg-mint ml-1 align-middle"
+                />
+              </p>
+              <p>{"}"}</p>
+            </div>
           </div>
 
           <motion.div

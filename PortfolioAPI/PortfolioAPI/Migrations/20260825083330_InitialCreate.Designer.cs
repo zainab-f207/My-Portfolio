@@ -12,7 +12,7 @@ using PortfolioAPI.Data;
 namespace PortfolioAPI.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260823155037_InitialCreate")]
+    [Migration("20260825083330_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />

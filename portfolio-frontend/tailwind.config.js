@@ -9,14 +9,17 @@ export default {
     extend: {
       colors: {
   cream: "#fdf6ec",
-  card: "#ffffff",
-  plum: "#3d2c56",        
+  card: "#fffaf3",
+  plum: "#2e1f45",
+  ink: "#2e1f45",
   lavender: "#8b5cf6",
   peach: "#fb923c",
   coral: "#f87171",
   mint: "#2dd4bf",
   gold: "#fbbf24",
   sky: "#38bdf8",
+  rose: "#f472b6",
+  sunset: "#ff6b81",
 },
 
       fontFamily: {

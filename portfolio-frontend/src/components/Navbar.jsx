@@ -1,3 +1,4 @@
+// portfolio-frontend/src/components/Navbar.jsx
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaBars, FaTimes, FaDownload } from "react-icons/fa";
@@ -13,9 +14,12 @@ const links = [
 export default function Navbar() {
   const [active, setActive] = useState("about");
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const onScroll = () => {
+      setScrolled(window.scrollY > 40);
+
       for (const l of links) {
         const el = document.getElementById(l.id);
 
@@ -38,15 +42,24 @@ export default function Navbar() {
     <motion.nav
       initial={{ y: -60, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-3xl"
+      className="fixed top-3 left-1/2 -translate-x-1/2 z-50 w-[94%] max-w-3xl"
     >
-      <div className="clay-card bg-card/90 backdrop-blur-md px-4 py-2.5 flex items-center justify-between rounded-full">
+      <div
+        className={`px-3 py-2 flex items-center justify-between rounded-full border-2 border-plum/15 transition-all duration-300 ${
+          scrolled
+            ? "bg-cream/95 backdrop-blur-xl shadow-clay"
+            : "bg-cream/70 backdrop-blur-md"
+        }`}
+      >
         {/* Logo */}
         <a
           href="#home"
-          className="font-display font-extrabold text-lg"
+          className="w-9 h-9 flex items-center justify-center rounded-full font-display font-extrabold text-sm text-white shrink-0"
+          style={{
+            background: "linear-gradient(135deg,#8b5cf6,#f472b6)",
+          }}
         >
-          ZF<span className="text-peach">.</span>
+          ZF
         </a>
 
         {/* Desktop Navigation */}
@@ -60,7 +73,11 @@ export default function Navbar() {
               {active === l.id && (
                 <motion.span
                   layoutId="nav-pill"
-                  className="absolute inset-0 bg-plum rounded-full -z-10"
+                  className="absolute inset-0 rounded-full -z-10"
+                  style={{
+                    background:
+                      "linear-gradient(135deg,#8b5cf6,#f472b6)",
+                  }}
                   transition={{
                     type: "spring",
                     stiffness: 350,
@@ -71,9 +88,7 @@ export default function Navbar() {
 
               <span
                 className={
-                  active === l.id
-                    ? "text-cream"
-                    : "text-plum/70"
+                  active === l.id ? "text-white" : "text-plum/70"
                 }
               >
                 {l.label}
@@ -82,22 +97,22 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* Right Side Buttons */}
+        {/* Right Side Actions */}
         <div className="flex items-center gap-2">
           {/* Resume Download */}
           <a
             href="/Zainab_Fayyaz_Resume.pdf"
             download
             title="Download Resume"
-            className="w-10 h-10 flex items-center justify-center rounded-full bg-mint clay-btn text-plum"
+            className="w-9 h-9 flex items-center justify-center rounded-full bg-mint clay-btn text-plum"
           >
-            <FaDownload size={13} />
+            <FaDownload size={12} />
           </a>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="md:hidden w-10 h-10 flex items-center justify-center rounded-full clay-btn bg-white"
+            className="md:hidden w-9 h-9 flex items-center justify-center rounded-full clay-btn bg-white"
             aria-label={menuOpen ? "Close menu" : "Open menu"}
           >
             {menuOpen ? <FaTimes /> : <FaBars />}
@@ -105,33 +120,21 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Navigation */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
-            initial={{
-              opacity: 0,
-              y: -10,
-              scale: 0.97,
-            }}
-            animate={{
-              opacity: 1,
-              y: 0,
-              scale: 1,
-            }}
-            exit={{
-              opacity: 0,
-              y: -10,
-              scale: 0.97,
-            }}
-            className="clay-card bg-card mt-2 p-2 md:hidden"
+            initial={{ opacity: 0, y: -10, scale: 0.97 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -10, scale: 0.97 }}
+            className="clay-card mt-2 p-2 md:hidden bg-cream"
           >
             {links.map((l) => (
               <a
                 key={l.id}
                 href={`#${l.id}`}
                 onClick={() => setMenuOpen(false)}
-                className="block px-4 py-3 rounded-xl font-semibold text-sm hover:bg-cream"
+                className="block px-4 py-3 rounded-xl font-semibold text-sm hover:bg-lavender/10"
               >
                 {l.label}
               </a>
