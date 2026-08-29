@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PortfolioAPI.Data;
+using PortfolioAPI.Models;
 
 namespace PortfolioAPI.Controllers
 {
@@ -19,27 +19,40 @@ namespace PortfolioAPI.Controllers
         [HttpGet("{slug}")]
         public async Task<IActionResult> GetViews(string slug)
         {
-            var project = await _db.ProjectViews.FirstOrDefaultAsync(p => p.Slug == slug);
-            if (project == null) return NotFound();
-            return Ok(new { slug = project.Slug, views = project.Views });
+            try
+            {
+                var project = await _db.ProjectViews.FirstOrDefaultAsync(p => p.Slug == slug);
+                if (project == null) return NotFound();
+                return Ok(new { slug = project.Slug, views = project.Views });
+            }
+            catch
+            {
+                return Ok(new { slug, views = 0 });
+            }
         }
 
         [HttpPost("{slug}/view")]
         public async Task<IActionResult> IncrementView(string slug)
         {
-            var project = await _db.ProjectViews.FirstOrDefaultAsync(p => p.Slug == slug);
-
-            if (project == null)
+            try
             {
-               
-                project = new Models.ProjectView { Slug = slug, Views = 0 };
-                _db.ProjectViews.Add(project);
+                var project = await _db.ProjectViews.FirstOrDefaultAsync(p => p.Slug == slug);
+
+                if (project == null)
+                {
+                    project = new ProjectView { Slug = slug, Views = 0 };
+                    _db.ProjectViews.Add(project);
+                }
+
+                project.Views++;
+                await _db.SaveChangesAsync();
+
+                return Ok(new { slug = project.Slug, views = project.Views });
             }
-
-            project.Views++;
-            await _db.SaveChangesAsync();
-
-            return Ok(new { slug = project.Slug, views = project.Views });
+            catch
+            {
+                return Ok(new { slug, views = 0 });
+            }
         }
     }
 }
