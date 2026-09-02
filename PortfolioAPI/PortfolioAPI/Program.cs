@@ -81,7 +81,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+// MonsterASP handles HTTPS at IIS level — removing app-level redirect to fix ERR_CONNECTION_RESET
 app.UseCors("AllowFrontend");
 app.UseAuthorization();
 app.MapControllers();
