@@ -20,3 +20,6 @@
 # OS files
 .DS_Store
 Thumbs.db
+# Build output and personal settings
+**/publish_output/
+*.user
