@@ -49,12 +49,16 @@ export default function ProjectCard({ project, index }) {
       </div>
 
       <div className="flex gap-3 text-sm font-semibold">
-        <a href={project.liveUrl} target="_blank" rel="noreferrer" className="flex items-center gap-2 px-3 py-2 rounded-full bg-white clay-btn text-xs">
-          <FaExternalLinkAlt size={11} /> Live
-        </a>
-        <a href={project.githubUrl} target="_blank" rel="noreferrer" className="flex items-center gap-2 px-3 py-2 rounded-full bg-white clay-btn text-xs">
-          <FaGithub size={12} /> Code
-        </a>
+        {project.liveUrl && (
+          <a href={project.liveUrl} target="_blank" rel="noreferrer" className="flex items-center gap-2 px-3 py-2 rounded-full bg-white clay-btn text-xs">
+            <FaExternalLinkAlt size={11} /> Live
+          </a>
+        )}
+        {project.githubUrl && (
+          <a href={project.githubUrl} target="_blank" rel="noreferrer" className="flex items-center gap-2 px-3 py-2 rounded-full bg-white clay-btn text-xs">
+            <FaGithub size={12} /> Code
+          </a>
+        )}
       </div>
     </motion.div>
   );

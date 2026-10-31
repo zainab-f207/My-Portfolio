@@ -23,3 +23,9 @@ Thumbs.db
 # Build output and personal settings
 **/publish_output/
 *.user
+
+# Private connection string
+**/appsettings.Secrets.json
+
+# Private connection string
+**/appsettings.Secrets.json

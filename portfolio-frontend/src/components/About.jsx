@@ -5,7 +5,7 @@ const facts = [
   { icon: FaGraduationCap, label: "Education", value: "BS CS, NUML Lahore" },
   { icon: FaCertificate, label: "Certified", value: "HEC NSCT — 88.1 percentile" },
   { icon: FaMapMarkerAlt, label: "Based in", value: "Lahore, Pakistan" },
-  { icon: FaBullseye, label: "Focused on", value: ".NET + React, end to end" },
+  { icon: FaBullseye, label: "Focused on", value: "Data engineering" },
 ];
 
 export default function About() {
@@ -23,17 +23,19 @@ export default function About() {
         >
           <p className="text-plum/75 leading-relaxed text-lg">
             I'm a Computer Science graduate from <strong>NUML, Lahore</strong>,
-            and a .NET developer who'd rather ship something real than
-            polish another tutorial project. During my internship at{" "}
-            <strong>SimpleLogix</strong>, I built full-stack features with
-            .NET Framework, C#, Entity Framework, and SQL Server — writing
-            APIs, fixing real bugs, and learning how teams actually ship
-            code through Agile sprints.
+            moving from full-stack .NET development into{" "}
+            <strong>data engineering</strong>. I've built four pipeline
+            projects on real public data: a dbt star-schema warehouse, an AWS
+            and Spark data lake, a Kafka and Spark streaming pipeline, and a
+            capstone platform that ties them together with Airflow, tests and
+            monitoring.
           </p>
           <p className="text-plum/75 leading-relaxed text-lg mt-4">
-            Outside of work, I build things that solve real problems: a
-            disaster-response platform, an ATS-scoring resume builder, and
-            a crime-analytics dashboard for Lahore — all below.
+            Each project documents its design decisions, validation checks and
+            known limitations. My internship at <strong>SimpleLogix</strong>{" "}
+            and my full-stack and machine-learning projects mean I'm
+            comfortable on the application side of the data too. Both are
+            below.
           </p>
         </motion.div>
 

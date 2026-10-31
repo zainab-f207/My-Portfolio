@@ -1,73 +1,88 @@
 import { motion } from "framer-motion";
 import {
+  SiApachekafka,
+  SiApachespark,
+  SiApacheairflow,
+  SiApacheparquet,
+  SiDocker,
   SiSharp,
   SiDotnet,
   SiReact,
   SiTailwindcss,
   SiPython,
   SiJavascript,
-  SiHtml5,
-  SiCss,
   SiPostgresql,
   SiMysql,
   SiGit,
   SiGithub,
   SiFastapi,
-  SiOpencv,
-  SiSqlite,
   SiScikitlearn,
 } from "react-icons/si";
 
 import {
   FaDatabase,
   FaServer,
+  FaCloud,
+  FaCogs,
+  FaProjectDiagram,
+  FaLayerGroup,
   FaCode,
-  FaLaptopCode,
 } from "react-icons/fa";
 
 const groups = [
   {
-    title: "Languages",
+    title: "Data Engineering",
     color: "bg-lavender/15",
     shadow: "shadow-clay",
     items: [
-      { name: "C#", icon: SiSharp },
-      { name: "Python", icon: SiPython },
-      { name: "JavaScript", icon: SiJavascript },
-      { name: "SQL", icon: FaDatabase },
-      { name: "HTML5", icon: SiHtml5 },
-      { name: "CSS3", icon: SiCss },
+      { name: "Apache Kafka", icon: SiApachekafka },
+      { name: "Apache Spark", icon: SiApachespark },
+      { name: "dbt Core", icon: FaLayerGroup },
+      { name: "Apache Airflow", icon: SiApacheairflow },
+      { name: "Parquet", icon: SiApacheparquet },
+      { name: "Star schemas", icon: FaProjectDiagram },
+      { name: "Data quality tests", icon: FaCogs },
+      { name: "Docker", icon: SiDocker },
     ],
   },
   {
-    title: "Frameworks & Libraries",
+    title: "Cloud & Databases",
     color: "bg-peach/15",
     shadow: "shadow-clay-peach",
     items: [
-      { name: "ASP.NET Core", icon: SiDotnet },
-      { name: "ASP.NET Web API", icon: SiDotnet },
-      { name: "EF Core", icon: FaServer },
-      { name: "React", icon: SiReact },
-      { name: "Tailwind CSS", icon: SiTailwindcss },
-      { name: "SignalR", icon: FaCode },
-      { name: "FastAPI", icon: SiFastapi },
-      { name: "scikit-learn", icon: SiScikitlearn },
-      { name: "OpenCV", icon: SiOpencv },
+      { name: "AWS S3", icon: FaCloud },
+      { name: "AWS Athena", icon: FaCloud },
+      { name: "Azure Blob", icon: FaCloud },
+      { name: "PostgreSQL", icon: SiPostgresql },
+      { name: "SQL Server", icon: FaDatabase },
+      { name: "MySQL", icon: SiMysql },
     ],
   },
   {
-    title: "Databases & Tools",
+    title: "Languages & Tools",
     color: "bg-mint/15",
     shadow: "shadow-clay-mint",
     items: [
-      { name: "SQL Server", icon: FaDatabase },
-      { name: "PostgreSQL", icon: SiPostgresql },
-      { name: "MySQL", icon: SiMysql },
-      { name: "SQLite", icon: SiSqlite },
+      { name: "Python", icon: SiPython },
+      { name: "SQL", icon: FaDatabase },
+      { name: "C#", icon: SiSharp },
+      { name: "JavaScript", icon: SiJavascript },
       { name: "Git", icon: SiGit },
       { name: "GitHub", icon: SiGithub },
-      { name: "Visual Studio", icon: FaLaptopCode },
-      { name: "Vercel / Render", icon: FaServer },
+    ],
+  },
+  {
+    title: "Application Development",
+    color: "bg-lavender/15",
+    shadow: "shadow-clay",
+    items: [
+      { name: "ASP.NET Core", icon: SiDotnet },
+      { name: "EF Core", icon: FaServer },
+      { name: "REST APIs", icon: FaCode },
+      { name: "React", icon: SiReact },
+      { name: "Tailwind CSS", icon: SiTailwindcss },
+      { name: "FastAPI", icon: SiFastapi },
+      { name: "scikit-learn", icon: SiScikitlearn },
     ],
   },
 ];
@@ -81,7 +96,7 @@ export default function Skills() {
         <span className="section-tag">02 · Skills</span>
         <h2 className="section-heading mb-10">What I work with</h2>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 gap-6">
           {groups.map((g, i) => (
             <motion.div
               key={g.title}
@@ -95,7 +110,7 @@ export default function Skills() {
                 {g.title}
               </h3>
 
-              <div className="grid grid-cols-2 gap-2.5">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
                 {g.items.map((item) => (
                   <div
                     key={item.name}

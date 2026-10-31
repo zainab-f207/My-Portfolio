@@ -101,9 +101,9 @@ export default function Navbar() {
         <div className="flex items-center gap-2">
           {/* Resume Download */}
           <a
-            href="/Zainab_Fayyaz_Resume.pdf"
+            href="/Zainab_Fayyaz_Data_Engineer_CV.pdf"
             download
-            title="Download Resume"
+            title="Download Data Engineering CV"
             className="w-9 h-9 flex items-center justify-center rounded-full bg-mint clay-btn text-plum"
           >
             <FaDownload size={12} />
